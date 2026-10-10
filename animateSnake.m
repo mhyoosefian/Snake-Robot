@@ -64,12 +64,7 @@ for i = 1:4
         fill3(ax, wheelR*cos(linspace(0, 2*pi, 25)) + L(i)/2, s*(r + .08)*ones(1, 25), wheelR*sin(linspace(0, 2*pi, 25)) + wheelR, ...
             [.45 .45 .5], 'Parent', tf(i), 'EdgeColor', 'none');
     end
-    if i < 4
-        % Joint with a torsional spring: a gold coil on top of the joint
-        a = linspace(0, 8*pi, 200); rc = .07;
-        plot3(ax, L(i) + rc*cos(a), rc*sin(a), zc + rad(i+1) + .01 + .1*a/(8*pi), 'Parent', tf(i), ...
-            'Color', [.85 .62 .12], 'LineWidth', 2.5);
-    else
+    if i == 4
         surf(ax, sx*r + L(i), sy*r, sz*r + zc, 'Parent', tf(i), 'FaceColor', green(i, :), 'EdgeColor', 'none');
     end
 end
